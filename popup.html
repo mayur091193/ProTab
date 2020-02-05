@@ -1,0 +1,263 @@
+<!doctype html>
+<html>
+<head>
+    <title>ProTab</title>
+    <link href="statics/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script src="statics/lib/jquery-1.10.2.js"></script>
+    <script src="statics/lib/cityapi.js"></script>
+    <script src="statics/js/popup.js"></script>
+
+    <style type="text/css">
+        .main {
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover !important;
+        }
+
+        span.previous {
+            float: left;
+        }
+
+        span.next {
+            float: right;
+        }
+
+        .date {
+            text-align: center;
+            background: #222;
+            color: white;
+            font-weight: 100;
+            font-size: 3em;
+        }
+
+        input.transparent-input {
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            text-shadow: 2px 2px 4px red;
+        }
+
+        input.transparent-input:focus {
+        <!-- border-color: rgba(126, 239, 104, 0.8);
+        box-shadow: 0 1 px 1 px rgba(0, 0, 0, 0.075) inset, 0 0 8 px rgba(126, 239, 104, 0.6);
+        outline: 0 none;
+        --> outline: none;
+        }
+
+        .clsText {
+            background-color: black;
+            z-index: 0;
+            opacity: 0.5;
+            font-weight: 900;
+            font-family: "Times New Roman", Times, serif;
+
+            text-shadow: 2px 2px 4px red;
+        }
+
+
+        #spWeather {
+            z-index: 0;
+            opacity: 0.9;
+            font-weight: 900;
+            font-family: "Times New Roman", Times, serif;
+            text-shadow: 2px 2px 4px Black;
+        }
+
+
+        h2, p {
+            font-size: 100%;
+            font-weight: normal;
+        }
+
+        ul, li {
+            list-style: none;
+        }
+
+        ul {
+            overflow: hidden;
+            padding: 2em;
+            width: 96%;
+            height: 16em;
+            overflow-x: auto;
+            white-space: nowrap;
+            position: fixed;
+            bottom: 0%;
+        }
+
+        ul li span {
+            text-decoration: none;
+            color: #000;
+            background: #ffc;
+            display: block;
+            height: 10em;
+            width: 20.6em;
+            padding: 0.5em;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+
+            -webkit-transform: rotate(-6deg);
+            -o-transform: rotate(-6deg);
+            -moz-transform: rotate(-6deg);
+
+            -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
+            -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+            box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+            -moz-transition: -moz-transform .15s linear;
+            -o-transition: -o-transform .15s linear;
+            -webkit-transition: -webkit-transform .15s linear;
+        }
+
+        ul li {
+            margin: 1.1em;
+            display: inline-block;
+        }
+
+        ul li p {
+
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #dvTodo {
+
+        }
+
+        .font_family {
+            font-family: "Times New Roman", Times, serif;
+        }
+
+        .close_todo {
+            cursor: pointer;
+            background-color: black;
+            color: white;
+            padding: 1px;
+            border-radius: 2px;
+        }
+
+
+        ul li:nth-child(even) span {
+            -o-transform: rotate(4deg);
+            -webkit-transform: rotate(4deg);
+            -moz-transform: rotate(4deg);
+            position: relative;
+            top: 5px;
+            background: #cfc;
+        }
+
+        ul li:nth-child(3n) span {
+            -o-transform: rotate(-3deg);
+            -webkit-transform: rotate(-3deg);
+            -moz-transform: rotate(-3deg);
+            position: relative;
+            top: -5px;
+            background: #ccf;
+        }
+
+        ul li:nth-child(5n) span {
+            -o-transform: rotate(5deg);
+            -webkit-transform: rotate(5deg);
+            -moz-transform: rotate(5deg);
+            position: relative;
+            top: -10px;
+        }
+
+        ul li span:hover, ul li span:focus {
+            -moz-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+            -webkit-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+            box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+            -webkit-transform: scale(1.10);
+            -moz-transform: scale(1.10);
+            -o-transform: scale(1.10);
+            position: relative;
+            z-index: 5;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px black;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 1px 0 0 10px rgb(140, 140, 140);
+        }
+
+    </style>
+
+</head>
+<body id="mainDv" class="main">
+
+<!--   <div style="width:100%">
+    <span style="color: white; font-weight: 100; font-size: 5em; text-align: center; margin-left: 299px; position: absolute; margin-top: 177px;">Hello Mayur Patel</span>
+<span  id="spnWish" style="color: white; font-weight: 100; font-size: 3em; align-self: center; margin-left: 299px; position: absolute; margin-top: 237px;"></span>
+</div> -->
+
+<div class="container" style="color:white;width: 95%">
+    <br>
+    <div class="row">
+
+        <div class="col-md-24 text-right" style="font-size:20px;visibility:hidden;" id="spWeather">23.23 &#8451;<br/>Vadodara
+        </div>
+    </div>
+    <br>
+
+    <div class="row" style="font-size:50px;">
+        <div class="col-md-24 text-center clsText"><span id="spnWish" style="z-index:999;color: #fff;"><strong>Center aligned text.</strong></span>
+        </div>
+    </div>
+    <div class="row" style="font-size:44px;">
+        <div class="col-md-24 text-center clsText"><span><strong><input class="transparent-input text-center"
+                                                                        id="txtName" type="text"
+                                                                        placeholder="Name"/></strong></span></div>
+    </div>
+    <div class="row" style="font-size:29px;">
+        <div class="col-md-24 text-center clsText"><span id="txtTime"><strong>Center aligned text.</strong></span></div>
+    </div>
+
+
+    <div class="row" style="margin-bottom:0px;">
+        <br>
+        <div class="col-md-24 text-right">
+            <p>
+                <button type="button" class="btn btn-primary  btn-xs" id="btnAddToDo">Add Notes</button>
+            </p>
+        </div>
+    </div>
+
+    <div class="row font_family" id="dvToDo" style="color:white;display:none;">
+        <div class="col-md-18"></div>
+        <div class="col-md-6 clsText"
+             style="border:2px solid Black;border-radius:10px;z-index:1000;opacity:1 !important;">
+            <br>
+            <div class="col-md-4">
+                <label for="inputEmail3" class="">Note :</label>
+            </div>
+            <div class="col-md-20" style="padding:2px;">
+                <textarea class="form-control" id="txtToDo" rows="3"></textarea>
+                <br>
+                <div class="pull-right">
+                    <p style="float:left;">
+                        <button type="button" id="btnSaveToDo" class="btn btn-success  btn-xs">Save</button>
+                    </p>
+                    <p style="float:left;margin-left:10px;">
+                        <button type="button" class="btn btn-primary  btn-xs" id="btnCancleTodo">Cancel</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <ul id="ul_todo">
+        </ul>
+    </div>
+</div>
+</body>
+</html>
