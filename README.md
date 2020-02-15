@@ -12,6 +12,18 @@ Made with HTML, CSS, Javascript, jQuery, Bootstrap
 * Time
 * To Do
 
+## Published on Chrome Web Store
+
+[ProTab](https://chrome.google.com/webstore/detail/protab/gjompmlfihjiiidknojjnjaeifhgblhj?hl=en)
+
+## How to run on local?
+
+```
+git clone https://github.com/mayur091193/ProTab.git
+Visit [chrome://extensions/](chrome://extensions/)
+Click Load Unpacked(On top left) and select the cloned folder(ProTab) - This will add ProTab local extension to the Chrome.
+```
+
 ## Screens UI
 
 <img src="statics/images/protab_1.jpg" border="1" />
