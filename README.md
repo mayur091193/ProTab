@@ -4,3 +4,7 @@ It replaces new tab page with a personal dashboard featuring notes, weather, and
 
 Made with HTML, CSS, Javascript, jQuery, Bootstrap
 
+
+## Screens UI
+
+<img src="statics/images/protab_1.jpg" border="1" />
