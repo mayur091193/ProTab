@@ -4,6 +4,14 @@ It replaces new tab page with a personal dashboard featuring notes, weather, and
 
 Made with HTML, CSS, Javascript, jQuery, Bootstrap
 
+## Built using
+
+* [HTML](https://www.w3schools.com/html/)
+* [CSS](https://www.w3schools.com/css/)
+* [Javascript](https://www.w3schools.com/js/)
+* [jQuery](https://jquery.com/)
+* [Bootstrap](https://getbootstrap.com/)
+
 ## Features
 
 * On each new tab - new image
@@ -22,7 +30,7 @@ Made with HTML, CSS, Javascript, jQuery, Bootstrap
 git clone https://github.com/mayur091193/ProTab.git
 ```
 
-Visit [chrome://extensions/](chrome://extensions/)
+Visit ```[chrome://extensions/](chrome://extensions/)```
 
 Click Load Unpacked(On top left) and select the cloned folder(ProTab) - This will add ProTab local extension to the Chrome.
 
