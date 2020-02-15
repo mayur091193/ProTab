@@ -8,3 +8,6 @@ Made with HTML, CSS, Javascript, jQuery, Bootstrap
 ## Screens UI
 
 <img src="statics/images/protab_1.jpg" border="1" />
+
+
+<img src="statics/images/protab_2.jpg" border="1" />
