@@ -20,9 +20,10 @@ Made with HTML, CSS, Javascript, jQuery, Bootstrap
 
 ```
 git clone https://github.com/mayur091193/ProTab.git
+```
 Visit [chrome://extensions/](chrome://extensions/)
 Click Load Unpacked(On top left) and select the cloned folder(ProTab) - This will add ProTab local extension to the Chrome.
-```
+
 
 ## Screens UI
 
